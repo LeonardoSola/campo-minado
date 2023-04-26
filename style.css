@@ -1,0 +1,123 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.campo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 300px;
+    min-width: 300px;
+    border: 1px solid darkgrey;
+}
+.campo .row{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.campo .cell{
+    /* Box */
+    border: 1px solid darkgrey;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Text */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: black;
+}
+.campo .cell.closed{
+    box-shadow: inset 4px 4px 2px lightgray, inset -4px -4px 2px gray;
+}
+.campo .cell.closed:hover{
+    background-color: lightblue;
+    cursor: pointer;
+}
+.campo .cell.open{
+    background-color: lightgrey;
+}
+.campo .cell.open.bomb{
+    border: 1px solid tomato;
+}
+.campo .cell.one{
+    color: blue;
+}
+.campo .cell.two{
+    color: green;
+}
+.campo .cell.three{
+    color: red;
+}
+.campo .cell.four{
+    color: purple;
+}
+.campo .cell.five{
+    color: brown;
+}
+.campo .cell.six{
+    color: darkcyan;
+}
+.campo .cell.seven{
+    color: violet;
+}
+.campo .cell.eight{
+    color: black;
+}
+.campo .cell.flag{
+    color: red;
+}
+
+.config{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.config .size{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.config .size input{
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+}
+.config .size label{
+    margin: 5px;
+}
+.config #startBtn{
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+}
