@@ -30,14 +30,12 @@ class Cell{
     }
 
     content(){
-        console.log(this.flag);
         if(this.open) {
             if(this.bomb) return "💣";
             else return this.GetBombsAround();
         }
         
         if(this.flag){
-            console.log("this.flag");
             return "🚩";
         }
         if(this.open){
@@ -116,6 +114,7 @@ var game = {
     cells: new Map(),
     bombsCount: 0,
     bombsFound: 0,
+    start: false,
     gameover: false,
     win: false
 }
@@ -144,6 +143,12 @@ function campGenerator(){
     game.bombsFound = 0;
     game.gameover = false;
     game.win = false;
+    game.start = false;
+
+    if(game.bombs >= game.size.x * game.size.y){
+        alert("Número de bombas alterado para o máximo possível");
+        game.bombs = game.size.x * game.size.y - 1;
+    }
 
     for(var x = 0; x < game.size.x; x++){
         for(var y = 0; y < game.size.y; y++){
@@ -187,6 +192,12 @@ function openCell(x, y, force = false){
     if(cell.flag) return;
     cell.open = true;
     if(cell.bomb && !force){
+        // Nunca perca no primeiro clique
+        if(!game.start){
+            campGenerator();
+            openCell(x, y);
+            return;
+        }
         game.gameover = true;
         alert("Você perdeu!");
         campRender();
@@ -220,7 +231,6 @@ function openAround(row, columns){
             openCell(x, y, true);
         }
     }
-    console.log("openAround")
     gameTick()
 }
 
@@ -240,6 +250,7 @@ function checkWin(){
 }
 
 function gameTick(){
+    game.start = true;
     campRender();
     checkWin();
 }
