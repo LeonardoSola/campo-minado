@@ -175,6 +175,7 @@ function campRender(){
 
         for(var y = 0; y < game.size.y; y++){
             celula = game.cells.get(x + "-" + y);
+            if(game.gameover) celula.open = true;
             if(celula == undefined) continue
             newRow += `<div class='cell ${celula.cssClass()}' id='${celula.position()}' onclick='openCell(${x}, ${y})' oncontextmenu='flagCell(${x}, ${y})'>${celula.content()}</div>`;
         }
